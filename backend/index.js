@@ -1,17 +1,21 @@
 const express = require("express");
-const mainrouter = require("./routes/index");
 
 //added cors
 const cors = require("cors");
+
+//import my mainrouter
+const mainrouter = require("./routes/index");
+
+const app = express()
+
+//use CORS middleware
 app.use(cors());
+app.use(express.json());
 
 //added body parser
 const rootRouter = require("./routes/index");
 
-const app = express()
 
-app.use(cors());
-app.use(express.json());
 
 app.use("/api/v1", mainrouter)
 // app.use("/api/v2", v2Router)
